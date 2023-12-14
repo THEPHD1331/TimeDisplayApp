@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: time-app
+  labels:
+    app: timer
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: timer
+  template:
+    metadata:
+      labels:
+        app: timer
+    spec:
+      containers:
+      - name: timedisplay
+        image: parasdongre/display-app:demo
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8686
+

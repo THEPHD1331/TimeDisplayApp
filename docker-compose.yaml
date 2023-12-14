@@ -1,0 +1,9 @@
+services:
+  demoapp:
+    image: parasdongre/display-app:demo
+    command: ["sh", "-c", "mvn spring-boot:run -Pdocker"]
+    ports:
+      - 127.0.0.1:8686:8686
+    working_dir: /src
+    volumes:
+      - ./:/src
